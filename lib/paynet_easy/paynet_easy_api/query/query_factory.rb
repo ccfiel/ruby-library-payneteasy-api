@@ -9,7 +9,7 @@ module PaynetEasy::PaynetEasyApi::Query
     #
     # @return                     [Prototype::Query]    API query object
     def query(api_query_name)
-      class_it  = "#{api_query_name.gsub('-', '')}"
+      class_it  = "#{api_query_name.gsub('-', '_')}"
       query_class = "#{class_it.camelize}Query"
       query_file  = "query/#{api_query_name.gsub('-', '_')}_query"
 
