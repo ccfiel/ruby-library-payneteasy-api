@@ -9,13 +9,8 @@ module PaynetEasy::PaynetEasyApi::Query
     #
     # @return                     [Prototype::Query]    API query object
     def query(api_query_name)
-      
-      if api_query_name=='sale-form'
-        query_class = 'SaleFormQuery'
-      else
-        query_class = "#{api_query_name.camelize}Query"
-      end
-
+      class_it  = "#{api_query_name.gsub('-', '')}"
+      query_class = "#{class_it.camelize}Query"
       query_file  = "query/#{api_query_name.gsub('-', '_')}_query"
 
       require query_file
